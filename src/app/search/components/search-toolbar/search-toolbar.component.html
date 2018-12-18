@@ -1,0 +1,26 @@
+<div class="search-toolbar">
+  <mat-toolbar class="mat-elevation-z3" color="primary">
+    <div class="search-container">
+      <div class="logo-wrapper">
+        <mat-icon svgIcon="github"></mat-icon>
+      </div>
+      <div class="search">
+        <input
+          #search
+          matInput
+          [formControl]="searchControl"
+          [matAutocomplete]="auto"
+          (keydown.enter)="setSearchTerm()"
+          class="search-box"
+          type="text"
+          placeholder="Search"
+        >
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="setSearchTerm()">
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+    </div>
+  </mat-toolbar>
+</div>

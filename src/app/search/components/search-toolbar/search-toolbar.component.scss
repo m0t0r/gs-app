@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  font-size: 1rem;
+}
+
+mat-toolbar.mat-toolbar.mat-primary {
+  background: #1d1e20;
+}
+
+.search-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+
+  mat-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.search-box {
+  border: none;
+  padding: 10px 10px;
+  background: #38393B;
+  color: #ffffff;
+  border-radius: 2px;
+
+  &:focus {
+    outline: none;
+    background: #ffffff;
+    color: #38393B;
+  }
+}

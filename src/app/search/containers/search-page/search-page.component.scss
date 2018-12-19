@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  font-size: 1rem;
+}
+
+.search-page-container {
+  margin: 0 auto;
+  max-width: 960px;
+  height: 50vh;
+  padding: 16px;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 50px;
+  color: #4f4f4f;
+  height: 100%;
+
+  h1 {
+    font-weight: 500;
+    font-size: 1em;
+  }
+}
+
+.pro-tip {
+  display: none;
+
+  .title {
+    font-weight: 500;
+  }
+
+  .message {
+    margin-left: 5px;
+  }
+}
+
+.key-shortcut {
+  border: 1px solid #aaaaaa;
+  padding: 3px;
+  border-radius: 2px;
+}
+
+@media screen and (min-width: 1024px) {
+  .pro-tip {
+    display: flex;
+    align-items: center;
+  }
+}

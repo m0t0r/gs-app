@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent implements OnInit {
+  options: string[] = [];
+  searchTerm = '';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSearchStart(searchTerm: string) {
+    // Implement the method
+  }
+
+  onSearchTerm(searchTerm: string) {
+    this.searchTerm = searchTerm;
+    // Implement the method
   }
 
 }

@@ -1,7 +1,23 @@
 <div class="search-page">
-  <app-search-toolbar></app-search-toolbar>
+  <app-search-toolbar
+    [options]="options"
+    (searchStart)="onSearchStart($event)"
+    (searchTerm)="onSearchTerm($event)"
+  ></app-search-toolbar>
 
-  <div class="welcome-message">TODO: welcome-message</div>
-  <div class="search-results">TODO: search-results</div>
-  <div class="no-search-results">TODO: no-search-results</div>
+  <div class="search-page-container">
+    <div class="welcome-container" *ngIf="!searchTerm.length">
+     <div class="welcome-message">
+       <h1>Welcome to GitHub User Search!</h1>
+       <p>Please type in the search username you would like to search for.</p>
+     </div>
+
+      <div class="pro-tip">
+        <mat-icon>info</mat-icon>
+        <p class="message"><span class="title"> Pro Tip!</span> You can press <kbd class="key-shortcut">⇧ Shift</kbd> + <kbd class="key-shortcut">/</kbd> to enable quick search</p>
+      </div>
+    </div>
+    <div class="search-results">TODO: search-results</div>
+    <div class="no-search-results">TODO: no-search-results</div>
+  </div>
 </div>

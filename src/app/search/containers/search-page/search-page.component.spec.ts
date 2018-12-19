@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchPageComponent } from './search-page.component';
 import { SearchToolbarModule } from '@app/search/components';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AppMaterialModule } from '@app/app-material.module';
 
 describe('SearchPageComponent', () => {
   let component: SearchPageComponent;
@@ -12,6 +13,7 @@ describe('SearchPageComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ SearchPageComponent ],
       imports: [
+        AppMaterialModule,
         HttpClientTestingModule,
         SearchToolbarModule
       ]

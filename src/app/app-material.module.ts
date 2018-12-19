@@ -3,14 +3,16 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatInputModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatButtonModule
 } from '@angular/material';
 
 const MATERIAL_MODULE = [
   MatToolbarModule,
   MatIconModule,
   MatInputModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatButtonModule
 ];
 
 @NgModule({

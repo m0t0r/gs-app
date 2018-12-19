@@ -1,0 +1,31 @@
+<div class="user-profile" *ngIf="userProfile">
+  <div class="avatar-container">
+    <img class="avatar" [src]="userProfile.avatarSrc" alt="User avatar">
+  </div>
+  <div class="profile-container">
+    <div class="user">
+      <span class="username">{{ userProfile.fullName }}</span> / {{ userProfile.githubUser }}
+    </div>
+    <div class="description">{{ userProfile.description || '—' }}</div>
+    <div class="stats">
+      <span class="stat">
+        <mat-icon>call_split</mat-icon>
+        {{ userProfile.repos }}
+        <span class="stat-name">repos</span>
+      </span>
+      <span class="stat">
+        <mat-icon>star</mat-icon>
+        {{ userProfile.stars }}
+        <span class="stat-name">stars</span>
+      </span>
+      <span class="stat">
+        <mat-icon>people</mat-icon>
+        {{ userProfile.followers }}
+        <span class="stat-name">followers</span>
+      </span>
+    </div>
+  </div>
+  <div class="button-container">
+    <a mat-stroked-button routerLink=".">View</a>
+  </div>
+</div>

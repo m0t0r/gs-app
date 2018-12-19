@@ -1,9 +1,10 @@
 import { sandboxOf } from 'angular-playground';
+import { HttpClientModule } from '@angular/common/http';
 import { SearchToolbarModule, SearchToolbarComponent } from '@app/search/components';
-
 
 export default sandboxOf(SearchToolbarComponent, {
   imports: [
+    HttpClientModule,
     SearchToolbarModule
   ],
   declareComponent: false

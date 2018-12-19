@@ -1,0 +1,143 @@
+:host {
+  display: block;
+  font-size: 1rem;
+}
+
+.user-profile {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.username {
+  font-weight: 500;
+}
+
+.description {
+  display: none;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+}
+
+.profile-container {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stats {
+  display: flex;
+  margin-top: 10px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  color: #887171;
+
+  &:not(:first-of-type) {
+    margin-left: 10px;
+  }
+
+  mat-icon {
+    display: block;
+    margin-right: 5px;
+  }
+}
+
+.stat-name {
+  display: none;
+}
+
+.button-container {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .user-profile {
+    flex-direction: column;
+    padding: 16px;
+    max-width: 307px;
+  }
+
+  .avatar {
+    width: 275px;
+    height: 275px;
+    border-radius: 4px;
+  }
+
+  .description {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .profile-container {
+    margin-left: 0;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .user {
+    font-size: 1.3em;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .stat {
+    mat-icon {
+      display: none;
+    }
+  }
+
+  .stat-name {
+    display: block;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .user-profile {
+    flex-direction: row;
+    padding: 16px;
+    max-width: 615px;
+    cursor: unset;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+  }
+
+  .profile-container {
+    margin-top: 0;
+    margin-left: 16px;
+    text-align: left;
+  }
+
+  .button-container {
+    display: block;
+    width: 100%;
+    text-align: right;
+
+    .mat-stroked-button:not([disabled]) {
+      border-color: #4f4f4f;
+
+      &:hover {
+        background: #eeeeee;
+      }
+    }
+  }
+}

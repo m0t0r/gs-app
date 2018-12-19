@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '@app/search/services';
-import { map, mergeMap, switchMap } from 'rxjs/operators';
+import { map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { Subject, zip } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 import { UserProfile } from '@app/search/components';
@@ -13,6 +13,8 @@ import { UserProfile } from '@app/search/components';
 export class SearchPageComponent implements OnInit {
   options: string[] = [];
   searchTerm = '';
+  errorMessage = '';
+  noResults = false;
 
   searchTerm$ = new Subject();
   searchResults: UserProfile[] = [];
@@ -28,6 +30,9 @@ export class SearchPageComponent implements OnInit {
       this.searchTerm$.next(searchTerm);
     } else {
       this.options = [];
+      this.searchResults = [];
+      this.searchTerm = '';
+      this.errorMessage = '';
     }
   }
 
@@ -38,8 +43,10 @@ export class SearchPageComponent implements OnInit {
 
     return this.searchService.getUsers(params)
       .pipe(
+        tap(res => this.noResults === !!res.items.length),
         mergeMap(res => res.items),
         mergeMap((user: any) => {
+          this.errorMessage = '';
           return zip(
             this.searchService.getUser(user.login),
             this.searchService.getUserStars(user.login, starsParams)
@@ -68,7 +75,8 @@ export class SearchPageComponent implements OnInit {
         };
 
         this.searchResults = [...this.searchResults, userProfile];
-      });
+      },
+      ({error}) => this.errorMessage = error.message);
   }
 
   getSearchOptions() {

@@ -6,7 +6,7 @@
   ></app-search-toolbar>
 
   <div class="search-page-container">
-    <div class="welcome-container" *ngIf="!searchTerm.length">
+    <div class="welcome-container" *ngIf="!searchTerm.length && !errorMessage.length">
      <div class="welcome-message">
        <h1>Welcome to GitHub User Search!</h1>
        <p>Please type in the search username you would like to search for.</p>
@@ -22,8 +22,17 @@
         *ngFor="let userProfile of searchResults"
         [userProfile]="userProfile"
       ></app-user-profile>
-
     </div>
-    <div class="no-search-results">TODO: no-search-results</div>
+    <div class="message-container">
+      <ng-container *ngIf="noResults && !errorMessage">
+        <mat-icon>warning</mat-icon>
+        <p class="message"><span class="title">Sorry!</span> No results have been found for your search</p>
+      </ng-container>
+
+      <ng-container *ngIf="errorMessage">
+        <mat-icon>error</mat-icon>
+        <p class="message"><span class="title">Error:</span> {{ errorMessage }}</p>
+      </ng-container>
+    </div>
   </div>
 </div>

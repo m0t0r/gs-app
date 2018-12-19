@@ -10,6 +10,11 @@
   padding: 16px;
 }
 
+.welcome-container,
+.message-container {
+  margin-top: 50px;
+}
+
 .welcome-container {
   display: flex;
   flex-direction: column;
@@ -26,14 +31,20 @@
 
 .pro-tip {
   display: none;
+}
 
-  .title {
-    font-weight: 500;
-  }
+.title {
+  font-weight: 500;
+}
 
-  .message {
-    margin-left: 5px;
-  }
+.message {
+  margin-left: 5px;
+}
+
+.message-container {
+  display: flex;
+  align-items: center;
+  color: #4f4f4f;
 }
 
 .key-shortcut {
@@ -42,8 +53,26 @@
   border-radius: 2px;
 }
 
+.search-results {
+  display: block;
+}
+
 app-user-profile {
   margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .search-results {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .search-results {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 1024px) {

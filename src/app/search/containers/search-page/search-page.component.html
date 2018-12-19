@@ -17,7 +17,13 @@
         <p class="message"><span class="title"> Pro Tip!</span> You can press <kbd class="key-shortcut">⇧ Shift</kbd> + <kbd class="key-shortcut">/</kbd> to enable quick search</p>
       </div>
     </div>
-    <div class="search-results">TODO: search-results</div>
+    <div class="search-results" *ngIf="searchResults.length">
+      <app-user-profile
+        *ngFor="let userProfile of searchResults"
+        [userProfile]="userProfile"
+      ></app-user-profile>
+
+    </div>
     <div class="no-search-results">TODO: no-search-results</div>
   </div>
 </div>

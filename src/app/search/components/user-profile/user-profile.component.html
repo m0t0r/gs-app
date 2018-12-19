@@ -4,7 +4,8 @@
   </div>
   <div class="profile-container">
     <div class="user">
-      <span class="username">{{ userProfile.fullName }}</span> / {{ userProfile.githubUser }}
+      <span class="username">{{ userProfile.fullName }}</span>
+      {{ userProfile.fullName && userProfile.githubUser ? '/' : '' }} {{ userProfile.githubUser }}
     </div>
     <div class="description">{{ userProfile.description || '—' }}</div>
     <div class="stats">

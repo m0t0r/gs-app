@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchPageComponent } from './search-page.component';
-import { SearchToolbarModule } from '@app/search/components';
+import { SearchToolbarModule, UserProfileModule } from '@app/search/components';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppMaterialModule } from '@app/app-material.module';
 
@@ -15,7 +15,8 @@ describe('SearchPageComponent', () => {
       imports: [
         AppMaterialModule,
         HttpClientTestingModule,
-        SearchToolbarModule
+        SearchToolbarModule,
+        UserProfileModule
       ]
     })
     .compileComponents();

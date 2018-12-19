@@ -1,2 +1,2 @@
-export { SearchToolbarComponent, SearchToolbarModule } from './search-toolbar/search-toolbar.component';
-export { UserProfileComponent, UserProfileModule } from './user-profile/user-profile.component';
+export * from './search-toolbar/search-toolbar.component';
+export * from './user-profile/user-profile.component';

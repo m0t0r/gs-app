@@ -1,12 +1,14 @@
 :host {
   display: block;
   font-size: 1rem;
+  height: 100%;
+  overflow: hidden;
 }
 
 .search-page-container {
   margin: 0 auto;
   max-width: 960px;
-  height: 50vh;
+  height: 100%;
   padding: 16px;
 }
 
@@ -70,23 +72,33 @@ app-search-pagination {
   margin: 16px 0;
 }
 
+.user-profiles {
+  height: 75vh;
+  overflow: auto;
+}
+
 @media screen and (min-width: 768px) {
-  .search-results {
+  .user-profiles {
     display: flex;
-    justify-content: space-around;
     flex-flow: row wrap;
+    justify-content: space-evenly;
   }
 }
 
 @media screen and (min-width: 960px) {
-  .search-results {
+  .user-profiles {
     display: block;
   }
 }
 
 @media screen and (min-width: 1024px) {
+  .user-profiles {
+    padding: 20px 0;
+  }
+
   .pro-tip {
     display: flex;
     align-items: center;
+    margin-top: 70px;
   }
 }

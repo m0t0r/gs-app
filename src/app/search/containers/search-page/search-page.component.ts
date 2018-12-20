@@ -23,13 +23,6 @@ export class SearchPageComponent implements OnInit {
   perPage = 20;
   page = 1;
 
-  /**
-   * TODO:
-   *
-   * - Sticky toolbar for mobile
-   * - ...
-   */
-
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {

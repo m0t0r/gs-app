@@ -17,8 +17,9 @@
         <p class="message"><span class="title"> Pro Tip!</span> You can press <kbd class="key-shortcut">⇧ Shift</kbd> + <kbd class="key-shortcut">/</kbd> to enable quick search</p>
       </div>
     </div>
-    <div class="search-results" *ngIf="searchResults.length">
+    <div class="search-results" *ngIf="searchTerm.length && !errorMessage.length">
       <app-search-pagination
+        *ngIf="total > perPage"
         [total]="total"
         [perPage]="perPage"
         [page]="page"
@@ -28,10 +29,12 @@
 
       <h2 class="total-users">Total users: {{ total }}</h2>
 
-      <app-user-profile
-        *ngFor="let userProfile of searchResults"
-        [userProfile]="userProfile"
-      ></app-user-profile>
+      <div class="user-profiles">
+        <app-user-profile
+          *ngFor="let userProfile of searchResults"
+          [userProfile]="userProfile"
+        ></app-user-profile>
+      </div>
     </div>
     <div class="message-container">
       <ng-container *ngIf="searchTerm && noResults && !errorMessage">

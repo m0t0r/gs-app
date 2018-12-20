@@ -19,6 +19,17 @@ export class SearchPageComponent implements OnInit {
   searchTerm$ = new Subject();
   searchResults: UserProfile[] = [];
 
+  total = 0;
+  perPage = 20;
+  page = 1;
+
+  /**
+   * TODO:
+   *
+   * - Sticky toolbar for mobile
+   * - ...
+   */
+
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
@@ -27,6 +38,7 @@ export class SearchPageComponent implements OnInit {
 
   onSearchStart(searchTerm: string) {
     if (searchTerm.length) {
+      this.options = [];
       this.searchTerm$.next(searchTerm);
     } else {
       this.options = [];
@@ -36,14 +48,19 @@ export class SearchPageComponent implements OnInit {
     }
   }
 
-  onSearchTerm(searchTerm: string) {
+  onSearchTerm(searchTerm: string, page: number) {
+    this.page = page;
     this.searchTerm = searchTerm;
-    const params = new HttpParams({fromString: `q=${searchTerm}&per_page=20`});
+    this.searchResults = [];
+    const params = new HttpParams({fromString: `q=${searchTerm}&per_page=${this.perPage}&page=${page}`});
     const starsParams = new HttpParams({fromString: `per_page=1`});
 
     return this.searchService.getUsers(params)
       .pipe(
-        tap(res => this.noResults === !!res.items.length),
+        tap(res => {
+          this.total = res.total_count;
+          this.noResults = res.items.length === 0;
+        }),
         mergeMap(res => res.items),
         mergeMap((user: any) => {
           this.errorMessage = '';
@@ -93,4 +110,11 @@ export class SearchPageComponent implements OnInit {
       });
   }
 
+  onNextPage(nextPage: number) {
+    this.onSearchTerm(this.searchTerm, nextPage);
+  }
+
+  onPrevPage(prevPage: number) {
+    this.onSearchTerm(this.searchTerm, prevPage);
+  }
 }

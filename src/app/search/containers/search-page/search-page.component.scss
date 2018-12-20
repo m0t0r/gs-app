@@ -57,8 +57,17 @@
   display: block;
 }
 
+.total-users {
+  font-size: 1em;
+  color: #4f4f4f;
+}
+
 app-user-profile {
   margin-bottom: 16px;
+}
+
+app-search-pagination {
+  margin: 16px 0;
 }
 
 @media screen and (min-width: 768px) {

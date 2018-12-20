@@ -1,4 +1,4 @@
-<div class="user-profile" *ngIf="userProfile">
+<div class="user-profile" *ngIf="userProfile" (click)="navigateToUserProfile(userProfile.githubUser)">
   <div class="avatar-container">
     <img class="avatar" [src]="userProfile.avatarSrc" alt="User avatar">
   </div>
@@ -27,6 +27,6 @@
     </div>
   </div>
   <div class="button-container">
-    <a mat-stroked-button routerLink=".">View</a>
+    <a mat-stroked-button [href]="'https://github.com/' + userProfile.githubUser">View</a>
   </div>
 </div>

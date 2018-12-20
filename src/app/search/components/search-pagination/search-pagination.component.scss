@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  font-size: 1rem;
+}
+
+.search-pagination {
+  display: flex;
+  justify-content: space-between;
+
+  .mat-flat-button.mat-accent[disabled],
+  .mat-flat-button.mat-accent[disabled] {
+    background-color: #dadada;
+    color: #aaaaaa;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .search-pagination {
+    display: block;
+
+    .mat-flat-button:first-of-type {
+      margin-right: 10px;
+    }
+  }
+}

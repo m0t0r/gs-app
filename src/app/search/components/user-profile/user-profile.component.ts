@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, NgModule, OnInit, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, NgModule, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppMaterialModule } from '@app/app-material.module';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 export interface UserProfile {
   avatarSrc: string;
@@ -18,12 +19,17 @@ export interface UserProfile {
   styleUrls: ['./user-profile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent {
   @Input() userProfile: UserProfile;
 
-  constructor() { }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
-  ngOnInit() {
+  navigateToUserProfile(githubUser) {
+    const isSmallScreen = this.breakpointObserver.isMatched('(max-width: 960px)');
+
+    if (isSmallScreen) {
+      window.location.href = `https://github.com/${githubUser}`;
+    }
   }
 
 }

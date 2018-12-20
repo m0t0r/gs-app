@@ -1,0 +1,14 @@
+<div class="search-pagination">
+  <button
+    mat-flat-button
+    color="accent"
+    [disabled]="!hasPrev"
+    (click)="prev.emit(prevPage)"
+  >Prev</button>
+  <button
+    mat-flat-button
+    color="accent"
+    [disabled]="!hasNext"
+    (click)="next.emit(nextPage)"
+  >Next</button>
+</div>
